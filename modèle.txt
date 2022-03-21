@@ -1,0 +1,42 @@
+JG.repeat(5, 100, {
+  id: JG.objectId(),
+  
+  nom: `${JG.firstName()}`,
+  
+  email() {
+    return (
+      _.snakeCase(this.nom) +
+      '@' +
+      'gmail' +
+      JG.domainZone()
+    ).toLowerCase();
+  },
+    
+  prix:'à partir de ' + `${JG.integer(10, 150)}` +' euro',
+  
+   address: `${JG.integer(1, 100)} ${JG.street()}, ${JG.city()}, ${JG.state()}`,
+  
+    
+  offres: {
+    
+    choix_chambre: `${JG.random("chambre simple", "chambre double(une personne)", "chambre double(2 personnes)", "chambre double(lit double)", "chambre triple", "chambre quadruple", "chambre sweet familiale")}`,
+    
+   activités: {
+    
+     petit_déjeuner: "petit déjeuner inclus",
+     dinner: `${JG.random("inclus", "non-inclus")}`,
+     piscine: `${JG.random("avec piscine", "sans piscine")}`,
+     centre_de_fitness: `${JG.random("avec centre_de_fitness", "sans centre_de_fitness")}`,
+     spa: `${JG.random("inclus", "non-inclus")}`,
+     étoiles:  `${JG.integer(2, 5)}` +' étoile',
+    },
+    
+   
+    localisation: {
+      lat: JG.floating(-90, 90, 6),
+      long: JG.floating(-180, 180, 6),
+    },
+   
+  },
+  
+});
